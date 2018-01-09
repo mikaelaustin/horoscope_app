@@ -20,7 +20,7 @@ module.exports = {
 		});
 	},
 	createUser: (name, birthdate, cb) => {
-		models.User.create({
+		models.Users.create({
 			name: name,
 			birthdate: birthdate,
 		}).then((res) => {
@@ -30,22 +30,22 @@ module.exports = {
 	},
 
 	getAllHoroscope: (cb) => {
-		models.Users.findAll({
+		models.Horoscope.findAll({
 			attributes: ['zodiac', 'todays_horoscope', 'description', 'date_range']
 		}).then(function(res){
 			console.log(res)
-			//cb(res)
+			cb(res)
 		});
 	},
 	createHoroscope: (zodiac, todays_horoscope, description, date_range, cb) => {
-		models.User.create({
+		models.Horoscope.create({
 			zodiac: zodiac,
 			todays_horoscope: todays_horoscope, 
 			description: description,
 			date_range: date_range,
 		}).then((res) => {
 			console.log(res)
-			//cb(res);
+			cb(res);
 		})
 	}
 }
