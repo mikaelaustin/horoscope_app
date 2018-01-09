@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Horoscope App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./public/css/main_page.css">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Horoscope App</h1>
+			<h2>Type your name and birthday to find your Horoscope information</h2>
+		</div>
+		<div id="zodiac-form"></div>
+			<div class="form-group">
+	        	<label for="fullName" class="col-sm-3 control-label">Full Name</label>
+	            	<div class="col-sm-9">
+	                	<input type="text" id="name-input" placeholder="Full Name" class="form-control" autofocus>
+	                </div>
+	        </div>
+			<div class="form-group">
+	        	<label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+	            	<div class="col-sm-9">
+	                	<input type="date" id="birthdate-input" class="form-control">
+	                </div>
+	        </div>
+	        <div class="form-group">
+	         	<div class="col-sm-9 col-sm-offset-3">
+	            	<button type="submit" class="btn btn-primary btn-block">Submit</button>
+	            </div>
+	        </div>
+	    </div>    
+		</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="./public/js/home.js"></script>
+</body>
+</html>

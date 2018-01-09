@@ -1,0 +1,24 @@
+{
+  "name": "horoscope_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^5.1.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "flash": "^1.1.0",
+    "passport": "^0.4.0",
+    "pg": "^7.4.1",
+    "sequelize": "^4.29.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
