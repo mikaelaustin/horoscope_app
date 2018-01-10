@@ -38,6 +38,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.use('/', routes)
+
 app.use(express.static('./client'));
 
 //require('./controllers/passport.js')(passport);

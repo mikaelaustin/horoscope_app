@@ -12,15 +12,15 @@ var models = require('./../models');
 
 module.exports = {
 	getAllUsers: (cb) => {
-		models.Users.findAll({
-			attributes: ['name', 'birthdate', 'zodiac', 'userID']
+		models.User.findAll({
+			attributes: ['name', 'birthdate', 'zodiac']
 		}).then(function(res){
 			console.log(res)
 			//cb(res)
 		});
 	},
 	createUser: (name, birthdate, cb) => {
-		models.Users.create({
+		models.User.create({
 			name: name,
 			birthdate: birthdate,
 		}).then((res) => {

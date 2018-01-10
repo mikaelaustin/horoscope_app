@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       unique: true 
     },
-    todays_horoscope: DataTypes.STRING,
-    description: DataTypes.STRING,
+    todays_horoscope: DataTypes.TEXT,
+    description: DataTypes.TEXT,
     date_range: DataTypes.STRING
 
   }, {

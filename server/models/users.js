@@ -1,24 +1,14 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Users = sequelize.define('Users', {
+  var User = sequelize.define('User', {
     name: DataTypes.STRING,
     birthdate: DataTypes.STRING,
-    zodiac: DataTypes.STRING,
-    userID: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
-      unique: true,
-      references: {
-        model: 'Users',
-        key: 'id'
-      },
-      field: 'user_id',
-      allowNull: false
-    }
+    zodiac: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
       }
     }
   });
-  return Users;
+  return User;
 };

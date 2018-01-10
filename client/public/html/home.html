@@ -3,7 +3,7 @@
 <head>
 	<title>Horoscope App</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="./public/css/main_page.css">
+	<!--<link rel="stylesheet" type="text/css" href="./public/css/main_page.css">-->
 </head>
 <body>
 	<div class="container">
@@ -11,7 +11,7 @@
 			<h1>Horoscope App</h1>
 			<h2>Type your name and birthday to find your Horoscope information</h2>
 		</div>
-		<div id="zodiac-form"></div>
+		<form id="zodiac-form">
 			<div class="form-group">
 	        	<label for="fullName" class="col-sm-3 control-label">Full Name</label>
 	            	<div class="col-sm-9">
@@ -29,8 +29,32 @@
 	            	<button type="submit" class="btn btn-primary btn-block">Submit</button>
 	            </div>
 	        </div>
-	    </div>    
-		</div>
+	    </form>  
+	   <!--dropdown menu -->
+	   <div class = "container text center">
+	     <div class="form-group" id="dropdown"> 
+		  <label class="col-md-4 control-label">Horoscope</label>
+			    <div class="col-md-4 selectContainer">
+			    <div class="input-group">
+			    <select name="department" class="form-control selectpicker">
+			      <option value="">Select Zodiac from the List</option>
+				      <option class="option">Aquarius</option>
+				      <option class="option">Pisces</option>
+				      <option  class="option">Aries</option>
+				      <option  class="option">Taurus</option>
+				      <option  class="option">Gemini</option>
+				      <option  class="option">Cancer</option>
+				      <option  class="option">Leo</option>
+				      <option class="option">Virgo</option>
+				      <option class="option">Libra</option>
+				      <option class="option">Scorpio</option>
+				      <option class="option">Sagittarius</option>
+				      <option class="option">Capricorn</option>
+			    </select>
+			  </div>
+			</div>
+		</div> 
+	</div>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="./public/js/home.js"></script>
