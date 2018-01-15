@@ -13,48 +13,56 @@
 		</div>
 		<form id="zodiac-form">
 			<div class="form-group">
-	        	<label for="fullName" class="col-sm-3 control-label">Full Name</label>
-	            	<div class="col-sm-9">
-	                	<input type="text" id="name-input" placeholder="Full Name" class="form-control" autofocus>
-	                </div>
-	        </div>
-			<div class="form-group">
-	        	<label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
-	            	<div class="col-sm-9">
-	                	<input type="date" id="birthdate-input" class="form-control">
-	                </div>
-	        </div>
-	        <div class="form-group">
-	         	<div class="col-sm-9 col-sm-offset-3">
-	            	<button type="submit" class="btn btn-primary btn-block">Submit</button>
-	            </div>
-	        </div>
+	        	<label class="col-sm-3 control-label">Full Name</label>
+	            <input type="text" id="name-input" placeholder="Full Name" class="form-control" autofocus>
+	            <label class="col-sm-3 control-label">Date of Birth</label>  
+	            <input type="date" id="birthdate-input" class="form-control">  
+	            <br></br>
+	       
+	        	<label>Your Zodiac Sign</label>
+				<select id="zodiac-dropdown" >
+			      	<option value="">Select your sign</option>
+				    <option value="Aquarius">Aquarius</option>
+					<option value="Aries">Aries</option>
+					<option value="Cancer">Cancer</option>
+					<option value="Capricorn">Capricorn</option>
+					<option value="Gemini">Gemini</option>
+					<option value="Libra">Libra</option>
+					<option value="Leo">Leo</option>
+					<option value="Pisces">Pisces</option>
+					<option value="Sagittarius">Sagittarius</option>
+					<option value="Scorpio">Scorpio</option>
+					<option value="Taurus">Taurus</option>
+					<option value="Virgo">Virgo</option>
+				</select>
+			</div>
+	         <button type="submit" class="btn btn-primary btn-block">Submit</button>    
 	    </form>  
+	    
 	   <!--dropdown menu -->
 	   <div class = "container text center">
-	     <div class="form-group" id="dropdown"> 
-		  <label class="col-md-4 control-label">Horoscope</label>
-			    <div class="col-md-4 selectContainer">
-			    <div class="input-group">
-			    <select name="department" class="form-control selectpicker">
-			      <option value="">Select Zodiac from the List</option>
-				      <option class="option">Aquarius</option>
-				      <option class="option">Pisces</option>
-				      <option  class="option">Aries</option>
-				      <option  class="option">Taurus</option>
-				      <option  class="option">Gemini</option>
-				      <option  class="option">Cancer</option>
-				      <option  class="option">Leo</option>
-				      <option class="option">Virgo</option>
-				      <option class="option">Libra</option>
-				      <option class="option">Scorpio</option>
-				      <option class="option">Sagittarius</option>
-				      <option class="option">Capricorn</option>
-			    </select>
-			  </div>
-			</div>
-		</div> 
-	</div>
+	   		<h2>Select Zodiac to see other users with your sign</h2>
+	   		<div class="text-center center-block" id="select-div">
+			<select id="zodiac-input">
+				<option value="" selected disabled hidden>Choose here</option>
+				<option value="aquarius">Aquarius</option>
+				<option value="aries">Aries</option>
+				<option value="cancer">Cancer</option>
+				<option value="capricorn">Capricorn</option>
+				<option value="gemini">Gemini</option>
+				<option value="libra">Libra</option>
+				<option value="leo">Leo</option>
+				<option value="pisces">Pisces</option>
+				<option value="sagittarius">Sagittarius</option>
+				<option value="scorpio">Scorpio</option>
+				<option value="taurus">Taurus</option>
+				<option value="virgo">Virgo</option>
+			</select>
+		</div>
+		<div id="button-div"></div>
+		</div>
+	<div id="horoscope-div"></div>
+	<div id="get-users-div"></div>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="./public/js/home.js"></script>

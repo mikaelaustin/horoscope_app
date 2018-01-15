@@ -16,16 +16,17 @@ module.exports = {
 			attributes: ['name', 'birthdate', 'zodiac']
 		}).then(function(res){
 			console.log(res)
-			//cb(res)
+			cb(res)
 		});
 	},
-	createUser: (name, birthdate, cb) => {
+	createUser: (name, birthdate, zodiac, cb) => {
 		models.User.create({
 			name: name,
 			birthdate: birthdate,
+			zodiac: zodiac,
 		}).then((res) => {
-			console.log(res)
-			//cb(res);
+			//console.log(res)
+			cb(res);
 		})
 	},
 

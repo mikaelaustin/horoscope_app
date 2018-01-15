@@ -12,17 +12,18 @@ router.get('/', (req,res) => {
 
 
 //example from class --- make your own version of what is below.
-router.get('/api/get-users', function(req,res){
-	mc.getAllUsers((users) => {
-		res.json(users);
-	})
-});
+// router.get('/api/get-users', function(req,res){
+// 	mc.getAllUsers((users) => {
+// 		res.json(users);
+// 	})
+// });
 
 router.get('/api/get-users', function(req, res){
 	models.User.findAll({where: {zodiac: req.params.zodiac}}).then(function(users){
 		var user_array = []
 		for(var i=0;i<users.length; i++){
 			user_array.push(users)
+			res.json(user_array)
 		}
 	})
 })
@@ -32,8 +33,12 @@ router.post('/api/create-user', (req,res) => {
 	mc.createUser(
 		req.body.name, 
 		req.body.birthdate,
+		req.body.zodiac,
 		(user) => {
-			res.json(user)
+			console.log("----------------------------------")
+			console.log(user);
+			console.log("----------------------------------")
+			res.json(user);
 		}
 	)
 });
@@ -59,26 +64,21 @@ router.post('/api/create-horoscope', (req,res) => {
 		}
 	)
 });
-router.get('/api/get-horoscope/:id', (req, res)=> {
-	models.User.findAll({where: {birthdate: req.params.birthdate}}).then(function(birthday){
-		var array = [];
-		for(var i=0; i < birthday.length; i++){
-			array.push(birthday[i].birthdate)
-		}
-		models.horoscope.findOne({where: {birthdate: {in: arr}}}).then(function(zodiac){
-			var zodiac_array=[]
-			for (var i=0; i < zodiac.length; i++){
-				zodiac_array.push({
-					zodiac: zodiac[i].zodiac,
-					zodiac: zodiac[i].todays_horoscope,
-					zodiac: zodiac[i].description,
-					zodiac: zodiac[i].date_range
-				})
-			}
-			res.json(zodiac_array)
-		})
-	})
-})
+router.get('/api/get-horoscope/:zodiac', (req, res)=> {
+	console.log(req)
+	 models.Horoscope.findOne({where: {zodiac: req.params.zodiac}}).then(function(zodiac){
+	 	var zodiac_array=[]
+	 	console.log("!!!!!!KJSHFIUAHSDUAHSUD!I!!!!!!")
+	 	console.log(zodiac)
+
+ 		
+
+ 		console.log(zodiac.dataValues)
+ 		res.json(zodiac.dataValues	)
+
+ 		})
+});
+
 
 
 

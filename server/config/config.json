@@ -2,7 +2,7 @@
   "development": {
     "username": "mikaelaustin",
     "password": "",
-    "database": "horoscope_app",
+    "database": "horoscope_app_new",
     "host": "localhost",
     "dialect": "postgres"
   },
