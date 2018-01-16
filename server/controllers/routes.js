@@ -18,12 +18,14 @@ router.get('/', (req,res) => {
 // 	})
 // });
 
-router.get('/api/get-users', function(req, res){
+router.get('/api/get-users/:zodiac', function(req, res){
 	models.User.findAll({where: {zodiac: req.params.zodiac}}).then(function(users){
 		var user_array = []
 		for(var i=0;i<users.length; i++){
 			user_array.push(users)
-			res.json(user_array)
+			console.log(user_array)
+			console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
+			//res.json(user_array)
 		}
 	})
 })
