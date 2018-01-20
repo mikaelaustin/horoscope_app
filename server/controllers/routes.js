@@ -19,14 +19,19 @@ router.get('/', (req,res) => {
 // });
 
 router.get('/api/get-users/:zodiac', function(req, res){
+	//console.log(req)
 	models.User.findAll({where: {zodiac: req.params.zodiac}}).then(function(users){
+		//console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
+		//console.log(users)
+		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
 		var user_array = []
-		for(var i=0;i<users.length; i++){
-			user_array.push(users)
-			console.log(user_array)
-			console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
-			//res.json(user_array)
+		for(var i=0; i < users.length; i++){
+		  	user_array.push(users[i].dataValues.name)
+		
 		}
+			console.log(user_array)
+		 	console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
+		 	res.json(user_array)
 	})
 })
 
@@ -62,21 +67,32 @@ router.post('/api/create-horoscope', (req,res) => {
 		req.body.date_range,
 		(horoscope) => {
 			console.log(horoscope)
+			console.log("++++++++++++++")
 			res.json(horoscope)
+			console.log("++++++++++++++")
 		}
 	)
 });
 router.get('/api/get-horoscope/:zodiac', (req, res)=> {
 	console.log(req)
+	console.log("console logging req in zodiac routes")
 	 models.Horoscope.findOne({where: {zodiac: req.params.zodiac}}).then(function(zodiac){
-	 	var zodiac_array=[]
-	 	console.log("!!!!!!KJSHFIUAHSDUAHSUD!I!!!!!!")
-	 	console.log(zodiac)
+	 	//var zodiac_array=[]
+	 	//console.log(zodiac)
+	 	//res.json(zodiac)
+	 	console.log("#############################")
+	 	// res.json(zodiac.dataValues.zodiac)
+	 	// res.json(zodiac.dataValues.todays_horoscope)
+	 	// res.json(zodiac.dataValues.description)
+	 	// res.json(zodiac.dataValues.date_range)
+	 	//zodiac_array.push(zodiac.dataValues.zodiac).push(zodiac.dataValues.todays_horoscope).push(zodiac.dataValues.description).push(zodiac.dataValues.date_range)
+	 	//res.json(zodiac_array)
 
  		
 
  		console.log(zodiac.dataValues)
- 		res.json(zodiac.dataValues	)
+ 		res.json(zodiac.dataValues)
+
 
  		})
 });

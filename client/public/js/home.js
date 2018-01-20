@@ -32,7 +32,7 @@ $(document).ready(function(){
 			console.log(res)
 			console.log("user created")
 
-			
+			//ajax call to get zodiac for that user
 			$.ajax({
 				method: 'GET',
 				url: '/api/get-horoscope/' + res.zodiac
@@ -40,18 +40,24 @@ $(document).ready(function(){
 				console.log(results)
 				console.log("showing horoscope for user")
 
-				$('#result-div').remove();
+				//$('#result-div').remove();
 
-				var resultDiv = $('<div id="result-div">');
+				 var resultDiv = $('<div id="result-div">');
 
-				var tableStr = $('<table id="horoscope-table" class="col-md-4 col-md-offset-4 table"><thead><tr>Zodiac<th>Name</th><th>Todays Horoscope</th><th>Description</th><th>Date Range</th></tr></thead><tbody id="horoscope-tbody">');
-				for(var i = 0; i < results.length; i++){
-					tableStr += "<tr><td>" + results[i].zodiac + "</td><td>" + results[i].todays_horoscope + "</td><td>" + results[i].description + "</td><td>" + results[i].date_range + "</tr>"
-				}
-				tableStr += "</tbody></table>";
-				resultDiv.append(tableStr)
 
-				$('horoscope-div').append(resultDiv)
+				var zodiacHeader = $('<h3 id="zodiac-header" class="text-center">Zodiac</h3>')
+				var today = $('<h5 id="today"class="text-center">Todays Horoscope</h5>')
+				var description = $('<h5 id="description"class="text-center">Description</h5>')
+				var dateRange = $('<h5 id="date"class="text-center">Date Range</h5>')
+
+				zodiacHeader.text(results.zodiac);
+				today.text("Today's Horoscope: " + results.todays_horoscope);
+				description.text("Description: " + results.description);
+				dateRange.text("Date Range: " + results.date_range);
+
+				resultDiv.append(zodiacHeader).append(today).append(description).append(dateRange);
+				$('#horoscope-div').append(resultDiv);
+
 
 			})
 		});
@@ -68,24 +74,29 @@ $(document).ready(function(){
 
 		$.ajax({
 			method: 'GET',
-			url: '/api/get-users/' + zodiac
+			url: '/api/get-users/' + zodiac,
+			dataType: 'json',
+			contentType: 'application/json'
 		}).then(function(users){
 			console.log(users)
 			console.log('showing users from zodiac pick')
 
 		// 	$('#user-list-div').remove();
+			var seeUsers = $('<h5 id="showusers" class="text-center"></h5>')
+		 	var userListDiv = $('<div id="user-list-div" class="text-center">');
 
-		// 	var userListDiv = $('<div id="user-list-div">');
+		 	var userList = $('<ol id="user-list" class="text-center">');
+		 	for (var i = 0; i < users.length; i++){
+		 		userList += "<li>" + users[i] + "</li>";
+		 	}
 
-		// 	var userList = $('<ul id="user-list" class="col-md-4 text-center">');
-		// 	for (var i=0; i < users.length; i++){
-		// 		userList += "<li" + users[i].name + "</li>";
+		 	userList += "</ol>";
 
-		// 	}
-		// 	userList += "</ul>"
-		// 	userListDiv.append(userList)
+		 	seeUsers.text("Users with " + zodiac + " zodiac:")
 
-		// 	$('#get-users-div').append(userListDiv)
+		 	userListDiv.append(seeUsers).append(userList);
+
+		 	$('#get-users-div').append(userListDiv)
 		 });
 	});
 });
